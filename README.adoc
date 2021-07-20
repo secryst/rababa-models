@@ -1,0 +1,13 @@
+= Kithara models for Arabic diacriticization
+
+== Purpose
+
+This repository provides releases of trained models using
+https://github.com/interscript/kithara[Kithara].
+
+== Usage
+
+Download the released models and use them according to these
+instructions.
+
+TODO.
