@@ -3,7 +3,7 @@
 == Purpose
 
 This repository provides releases of trained models using
-https://github.com/interscript/kithara[Kithara].
+https://github.com/interscript/rababa[Rababa].
 
 == Usage
 
