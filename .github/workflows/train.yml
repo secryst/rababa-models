@@ -24,10 +24,15 @@ jobs:
         repository: interscript/rababa
         path: rababa
 
-    - name: Setup
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ matrix.python-version }}-${{ hashFiles('rababa/requirements.txt') }}
+
+    - name: Install requirements
       working-directory: rababa/python
       run: |
-        pip install -r requirement.txt
+        pip install --upgrade --upgrade-strategy eager -r requirements.txt -e .
 
     - name: Prepare dataset
       working-directory: rababa/python
