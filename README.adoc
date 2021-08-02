@@ -1,4 +1,4 @@
-= Kithara models for Arabic diacriticization
+= Rababa models for Arabic diacriticization
 
 == Purpose
 
