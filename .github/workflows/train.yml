@@ -25,12 +25,12 @@ jobs:
         path: rababa
 
     - name: Setup
-      working-directory: rababa
+      working-directory: rababa/python
       run: |
         pip install -r requirement.txt
 
     - name: Prepare dataset
-      working-directory: rababa
+      working-directory: rababa/python
       run: |
         mkdir -p data/CA_MSA
         cd data
