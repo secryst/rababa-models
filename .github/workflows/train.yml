@@ -30,22 +30,23 @@ jobs:
         key: ${{ env.pythonLocation }}-${{ hashFiles('rababa/python/setup.py') }}-${{ hashFiles('rababa/python/requirements.txt') }}
 
     - name: Install requirements
-      working-directory: rababa/python
+      working-directory: ./rababa/python
       run: |
         pip install --upgrade --upgrade-strategy eager -r requirements.txt -e .
 
     - name: Prepare dataset
-      working-directory: rababa/python
+      working-directory: ./rababa/python
       run: |
         mkdir -p data/CA_MSA
-        pushd data
+        touch data/CA_MSA/{eval,train,test}.csv
+        cd data
         curl -sSL https://github.com/interscript/rababa-tashkeela/archive/refs/tags/v1.0.zip -o tashkeela.zip
         unzip tashkeela.zip
-        touch data/CA_MSA/{eval,train,test}.csv
-        for d in `ls rababa-tashkeela-1.0/tashkeela_val/*`; do cat $d >> data/CA_MSA/eval.csv; done
-        for d in `ls rababa-tashkeela-1.0/tashkeela_train/*`; do cat $d >> data/CA_MSA/train.csv; done
-        for d in `ls rababa-tashkeela-1.0/tashkeela_test/*`; do cat $d >> data/CA_MSA/test.csv; done
+        for d in `ls rababa-tashkeela-1.0/tashkeela_val/*`; do cat $d >> CA_MSA/eval.csv; done
+        for d in `ls rababa-tashkeela-1.0/tashkeela_train/*`; do cat $d >> CA_MSA/train.csv; done
+        for d in `ls rababa-tashkeela-1.0/tashkeela_test/*`; do cat $d >> CA_MSA/test.csv; done
 
     - name: Try training (WIP)
+      working-directory: ./rababa/python
       run: |
         python train.py --model models/cbhg.py --config config/cbhg.yml
