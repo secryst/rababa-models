@@ -26,8 +26,8 @@ jobs:
 
     - uses: actions/cache@v2
       with:
-        path: ~/.cache/pip
-        key: ${{ matrix.python-version }}-${{ hashFiles('rababa/requirements.txt') }}
+        path: ${{ env.pythonLocation }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('rababa/python/setup.py') }}-${{ hashFiles('rababa/python/requirements.txt') }}
 
     - name: Install requirements
       working-directory: rababa/python
