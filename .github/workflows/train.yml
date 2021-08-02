@@ -38,9 +38,10 @@ jobs:
       working-directory: rababa/python
       run: |
         mkdir -p data/CA_MSA
-        cd data
+        pushd data
         curl -sSL https://github.com/interscript/rababa-tashkeela/archive/refs/tags/v1.0.zip -o tashkeela.zip
         unzip tashkeela.zip
+        touch data/CA_MSA/{eval,train,test}.csv
         for d in `ls rababa-tashkeela-1.0/tashkeela_val/*`; do cat $d >> data/CA_MSA/eval.csv; done
         for d in `ls rababa-tashkeela-1.0/tashkeela_train/*`; do cat $d >> data/CA_MSA/train.csv; done
         for d in `ls rababa-tashkeela-1.0/tashkeela_test/*`; do cat $d >> data/CA_MSA/test.csv; done
