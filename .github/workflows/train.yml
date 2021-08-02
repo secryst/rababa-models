@@ -1,9 +1,9 @@
 name: train
 
 on:
-  push:
+  - push:
     - main
-  pull_request:
+  - pull_request:
 
 jobs:
   build:
