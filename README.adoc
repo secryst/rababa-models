@@ -1,4 +1,5 @@
-= Rababa models for Arabic diacriticization
+= Rababa models for Diacriticization
+We cover Arabic, Hebrew and soon Farsi.
 
 == Purpose
 
