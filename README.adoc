@@ -7,6 +7,9 @@ We cover Arabic, Hebrew and soon Farsi.
 This repository provides releases of trained models using
 https://github.com/interscript/rababa[Rababa].
 
+* arabic code and onnx model available
+* hebrew code and onnx model available
+
 == Usage
 
 Download the released models and use them according to these
